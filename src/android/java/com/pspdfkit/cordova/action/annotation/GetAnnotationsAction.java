@@ -13,8 +13,8 @@ import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static com.pspdfkit.cordova.Utilities.convertJsonNullToJavaNull;
 import static com.pspdfkit.cordova.Utilities.getAnnotationTypeSetFromInstantJsonType;

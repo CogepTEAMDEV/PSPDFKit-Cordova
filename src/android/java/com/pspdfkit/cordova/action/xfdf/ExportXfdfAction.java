@@ -22,8 +22,8 @@ import java.io.OutputStream;
 import java.util.Collections;
 import java.util.EnumSet;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
  * Asynchronously exports annotations to XFDF-file from the current document.

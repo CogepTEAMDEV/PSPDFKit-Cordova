@@ -3,7 +3,7 @@
 
 > **Notice:**
 >
-> This branch is only updated to support **iOS 18**. The demo projects included are **not up to date** and may not work as expected. **I do not provide support for this repository.**
+> This branch is only updated to support **iOS 18** and **16 kb pages in Android**. The demo projects included are **not up to date** and may not work as expected. **I do not provide support for this repository.**
 >
 > If you need information or help, please visit the official PSPDFKit support page: [https://pspdfkit.com/support/request/](https://pspdfkit.com/support/request/)
 

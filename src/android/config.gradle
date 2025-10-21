@@ -20,8 +20,9 @@ if (pspdfkitMavenUrl == null || pspdfkitMavenUrl == '') {
     ext.pspdfkitMavenUrl = 'https://customers.pspdfkit.com/maven/'
 }
 
-ext.pspdfkitMavenModuleName = 'pspdfkit'
+ext.pspdfkitMavenModuleName = 'nutrient'
+ext.pspdfkitMavenGroupId = 'io.nutrient'
 ext.pspdfkitVersion = localProperties.getProperty('pspdfkit.version')
 if (pspdfkitVersion == null || pspdfkitVersion == '') {
-    ext.pspdfkitVersion = '8.1.2'
+    ext.pspdfkitVersion = '10.7.0'
 }

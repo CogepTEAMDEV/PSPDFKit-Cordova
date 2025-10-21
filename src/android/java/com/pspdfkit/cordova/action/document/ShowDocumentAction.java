@@ -18,6 +18,7 @@ import com.pspdfkit.configuration.activity.ThumbnailBarMode;
 import com.pspdfkit.configuration.page.PageFitMode;
 import com.pspdfkit.configuration.page.PageScrollDirection;
 import com.pspdfkit.configuration.page.PageScrollMode;
+import com.pspdfkit.configuration.search.SearchType;
 import com.pspdfkit.configuration.sharing.ShareFeatures;
 import com.pspdfkit.cordova.CordovaPdfActivity;
 import com.pspdfkit.cordova.PSPDFKitPlugin;
@@ -96,86 +97,38 @@ public class ShowDocumentAction extends BasicAction {
         } else if ("backgroundColor".equals(option)) {
           builder.backgroundColor(Color.parseColor((String) value));
         } else if ("disableAnnotationList".equals(option)) {
-          if ((Boolean) value) {
-            builder.disableAnnotationList();
-          } else {
-            builder.enableAnnotationList();
-          }
+          builder.annotationEditingEnabled(false);
         } else if ("disableAnnotationNoteHinting".equals(option)) {
           builder.setAnnotationNoteHintingEnabled(!(Boolean) value);
         } else if ("disableBookmarkEditing".equals(option)) {
-          if ((Boolean) value) {
-            builder.disableBookmarkEditing();
-          } else {
-            builder.enableBookmarkEditing();
-          }
+          builder.bookmarkListEnabled(false);
         } else if ("disableBookmarkList".equals(option)) {
-          if ((Boolean) value) {
-            builder.disableBookmarkList();
-          } else {
-            builder.enableBookmarkList();
-          }
+          builder.bookmarkListEnabled(false);
         } else if ("disableCopyPaste".equals(option)) {
-          if ((Boolean) value) {
-            builder.disableCopyPaste();
-          } else {
-            builder.enableCopyPaste();
-          }
+          builder.copyPastEnabled(false);
         } else if ("disableDocumentEditor".equals(option)) {
-          if ((Boolean) value) {
-            builder.disableDocumentEditor();
-          } else {
-            builder.enableDocumentEditor();
-          }
+          builder.documentEditorEnabled(false);
         } else if ("disableOutline".equals(option)) {
-          if ((Boolean) value) {
-            builder.disableOutline();
-          } else {
-            builder.enableOutline();
-          }
+          builder.outlineEnabled(false);
         } else if ("disablePrinting".equals(option)) {
-          if ((Boolean) value) {
-            builder.disablePrinting();
-          } else {
-            builder.enablePrinting();
-          }
+          builder.printingEnabled(false);
         } else if ("disableSearch".equals(option)) {
-          if ((Boolean) value) {
-            builder.disableSearch();
-          } else {
-            builder.enableSearch();
-          }
+          builder.searchEnabled(false);
         } else if ("shareFeatures".equals(option)) {
           builder.setEnabledShareFeatures(parseShareFeatures((JSONArray) value));
         } else if ("disableUndoRedo".equals(option)) {
           builder.undoEnabled(!(Boolean) value);
         } else if ("hidePageLabels".equals(option)) {
-          if ((Boolean) value) {
-            builder.hidePageLabels();
-          } else {
-            builder.showPageLabels();
-          }
+          builder.pageLabelsEnabled(false);
         } else if ("hidePageNumberOverlay".equals(option)) {
-          if ((Boolean) value) {
-            builder.hidePageNumberOverlay();
-          } else {
-            builder.showPageNumberOverlay();
-          }
+          builder.pageNumberOverlayEnabled(false);
         } else if ("hideSettingsMenu".equals(option)) {
-          if ((Boolean) value) {
-            builder.hideSettingsMenu();
-          } else {
-            builder.showSettingsMenu();
-          }
+          builder.settingsMenuEnabled(false);
         } else if ("thumbnailBarMode".equals(option)) {
           final CordovaThumbnailBarMode thumbnailBarMode = CordovaThumbnailBarMode.valueOf((String) value);
           builder.setThumbnailBarMode(thumbnailBarMode.androidThumbnailBarMode);
         } else if ("hideThumbnailGrid".equals(option)) {
-          if ((Boolean) value) {
-            builder.hideThumbnailGrid();
-          } else {
-            builder.showThumbnailGrid();
-          }
+          builder.thumbnailGridEnabled(false);
         } else if ("memoryCacheSize".equals(option)) {
           builder.memoryCacheSize((Integer) value);
         } else if ("pageFitMode".equals(option)) {
@@ -199,13 +152,13 @@ public class ShowDocumentAction extends BasicAction {
         } else if ("page".equals(option)) {
           builder.page(options.getInt("page"));
         } else if ("useImmersiveMode".equals(option)) {
-          builder.useImmersiveMode(options.getBoolean("useImmersiveMode"));
+          builder.immersiveModeEnabled(true);
         } else if ("searchType".equals(option)) {
           final String searchType = options.getString("searchType");
           if ("SEARCH_INLINE".equals(searchType))
-            builder.setSearchType(PdfActivityConfiguration.SEARCH_INLINE);
+            builder.setSearchType(SearchType.INLINE);
           else if ("SEARCH_MODULAR".equals(searchType))
-            builder.setSearchType(PdfActivityConfiguration.SEARCH_MODULAR);
+            builder.setSearchType(SearchType.MODULAR);
           else throw new IllegalArgumentException(String.format("Invalid search type: %s", value));
         } else if ("annotationEditing".equals(option)) {
           final JSONObject annotationEditing = options.getJSONObject("annotationEditing");
@@ -216,8 +169,7 @@ public class ShowDocumentAction extends BasicAction {
             final Object annotationEditingValue = annotationEditing.get(annotationEditingOption);
 
             if ("enabled".equals(annotationEditingOption)) {
-              if ((Boolean) annotationEditingValue) builder.enableAnnotationEditing();
-              else builder.disableAnnotationEditing();
+                builder.annotationEditingEnabled((Boolean) annotationEditingValue);
             } else if ("creatorName".equals(annotationEditingOption)) {
               PSPDFKitPreferences.get(activity)
                   .setAnnotationCreator(

@@ -17,8 +17,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.Disposable;
 
 import static com.pspdfkit.cordova.Utilities.checkArgumentNotNull;
 

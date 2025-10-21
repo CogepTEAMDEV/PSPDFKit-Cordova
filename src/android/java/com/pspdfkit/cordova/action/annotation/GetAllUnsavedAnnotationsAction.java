@@ -16,8 +16,8 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
  * Asynchronously retrieves all unsaved changes to annotations.

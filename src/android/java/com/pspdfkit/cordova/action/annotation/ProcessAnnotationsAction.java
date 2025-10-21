@@ -20,9 +20,9 @@ import org.json.JSONException;
 import java.io.FileNotFoundException;
 import java.io.OutputStream;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-import io.reactivex.subscribers.DisposableSubscriber;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+import io.reactivex.rxjava3.subscribers.DisposableSubscriber;
 
 import static com.pspdfkit.cordova.Utilities.convertJsonNullToJavaNull;
 import static com.pspdfkit.cordova.Utilities.getAnnotationProcessingModeFromString;
